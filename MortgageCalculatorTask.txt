@@ -1,0 +1,36 @@
+import java.text.NumberFormat;
+import java.util.Scanner;
+public class MortgageCalculator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       Scanner scan=new Scanner(System.in);
+        double Mortgage;
+        double principal;
+        double rate;
+        double period;
+        System.out.println("Enter principal amount");
+        principal=scan.nextDouble();
+        if(principal<1000) {
+        	System.out.println("Enter a value between 1000 and 1000000");
+        }
+        System.out.println("Enter rate");
+        rate=scan.nextDouble();
+        if(rate==0&&rate>30) {
+        	System.out.println("Enter a value between 1 and 30");
+        }
+        
+        System.out.println("Enter period");
+        period=scan.nextDouble();
+        if(period==0&&period>30) {
+        	System.out.println("Enter a value between 1 and 30");
+        }
+        double Rate,time;
+        Rate=rate/1200;
+        time=period*12;
+        Mortgage=principal*Rate/1-Math.pow(1/1+Rate, time);
+        NumberFormat currency=NumberFormat.getCurrencyInstance();
+        String MortgageFormatted=currency.format(Mortgage);
+        System.out.println("Mortgage value is:"+ MortgageFormatted );
+	}
+}
