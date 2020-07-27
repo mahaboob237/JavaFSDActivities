@@ -1,0 +1,86 @@
+package com.LinkedList;
+
+class Node {
+	 
+    int data;
+    Node next;
+ 
+    public Node(int data) {
+       this.data = data;
+       this.next = null;
+    } 
+}
+    
+
+
+	public class MiddleofLinkedList {
+		 
+	    private Node head;
+	 
+	   
+	    public  MiddleofLinkedList() {
+	       this.head = null;
+	    }
+	 
+	    public Node insert(int data) {
+	 
+	       if (head == null) {
+	          head = new Node(data);
+	 
+	        } else {
+	 
+	          
+	           Node temp = new Node(data);
+	          
+		          
+	           temp.next = head;
+	           head = temp;
+	        }
+	 
+	        return head;
+	    }
+	 
+	 
+	    public void printMiddleElement() {
+	 
+	         Node slow = head;
+	         Node fast = head;
+	 
+	         while (fast != null && fast.next != null) {
+	 
+	               slow = slow.next;
+	               fast = fast.next.next;
+	         }
+	 
+	         System.out.println(" Middle Element of a Linked List is " + slow.data);
+	     }
+	 
+	 
+	     public void print() {
+	 
+	        Node temp = head;
+	 
+	       
+	         while (temp != null) {
+	            System.out.println(temp.data);
+	 
+	            temp = temp.next;
+	         }
+	      }
+	 
+	     public static void main(String[] args) {
+	 
+	         MiddleofLinkedList mid = new MiddleofLinkedList();
+	 
+	         mid.insert(6);
+	         mid.insert(5);
+	         mid.insert(8);
+	         mid.insert(9);
+	         mid.insert(15);
+	 
+	         mid.print();
+	 
+	         mid.printMiddleElement();
+	    }
+	}
+
